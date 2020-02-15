@@ -3,6 +3,7 @@ package com.example.fragmentdemo;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -24,6 +25,15 @@ public class FragmentA extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(savedInstanceState == null){
+            count = 0;
+        }else {
+            count = savedInstanceState.getInt("counter",0);
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +49,12 @@ public class FragmentA extends Fragment implements View.OnClickListener {
         button = getActivity().findViewById(R.id.button);
         button.setOnClickListener(this);
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("counter",count);
     }
 
     @Override

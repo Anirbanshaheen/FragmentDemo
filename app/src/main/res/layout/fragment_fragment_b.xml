@@ -6,9 +6,6 @@
     android:background="#76FF03"
     tools:context=".FragmentB">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <TextView
         android:id="@+id/textView"
         android:textSize="30sp"
